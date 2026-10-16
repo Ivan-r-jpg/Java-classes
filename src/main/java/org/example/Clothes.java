@@ -21,7 +21,7 @@ public class Clothes {
         return price;
     }
     public void setPrice(double price) {
-        if (price < 0){
+        if (price < 0) {
             throw new IllegalArgumentException("Ціна не може бути менше нуля!");
         }
         this.price = price;
@@ -30,19 +30,31 @@ public class Clothes {
         return brand;
     }
     public void setBrand(String brand) {
-        this.brand = Objects.requireNonNull(brand, "Бренд не може бути null!");
+        Objects.requireNonNull(brand, "Бренд не може бути null!");
+        if (brand.trim().isEmpty()) {
+            throw new IllegalArgumentException("Поле brand має бути заповненим!");
+        }
+        this.brand = brand;
     }
     public String getMaterial() {
         return material;
     }
     public void setMaterial(String material) {
-        this.material = Objects.requireNonNull(material, "Матеріал не може бути null!");
+        Objects.requireNonNull(material, "Матеріал не може бути null!");
+        if (material.trim().isEmpty()) {
+            throw new IllegalArgumentException("Поле material має бути заповненим!");
+        }
+        this.material = material;
     }
     public String getSize() {
         return size;
     }
     public void setSize(String size) {
-        this.size = Objects.requireNonNull(size, "Розмір не може бути null!");
+        Objects.requireNonNull(size, "Розмір не може бути null!");
+        if (size.trim().isEmpty()) {
+            throw new IllegalArgumentException("Поле size має бути заповненим!");
+        }
+        this.size = size;
     }
 
     @Override
@@ -58,7 +70,7 @@ public class Clothes {
         if(o == null || this.getClass() != o.getClass()) return false;
         Clothes clothes = (Clothes) o;
         return (this.price == clothes.price) && (Objects.equals(this.brand, clothes.brand))
-                &&  (Objects.equals(this.material, clothes.material))
+                && (Objects.equals(this.material, clothes.material))
                 && (Objects.equals(this.size, clothes.size));
     }
 }
