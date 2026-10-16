@@ -1,8 +1,7 @@
 package org.example;
 
 import java.util.Scanner;
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
 public class Main {
     static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -11,7 +10,7 @@ public class Main {
         while(count <= 0) {
             System.out.print("\n[ПОМИЛКА] - Введено неправильне число ("
                     + count + " < 0)!\nВведіть ще раз кількість об'єктів, що бажаєте створити: ");
-            count = sc.nextInt();
+            count = Integer.parseInt(sc.nextLine());
         }
 
         Clothes[] clothesArr =  new Clothes[count];
